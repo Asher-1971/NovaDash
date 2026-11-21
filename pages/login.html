@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in · NovaDash</title>
+  <meta name="description" content="Sign in to the NovaDash demo control panel.">
+  <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Design system: load order is fixed (DESIGN.md section 8) -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <!-- Single local entry module (deferred by spec); needs an HTTP server -->
+  <script type="module" src="../js/app.js"></script>
+</head>
+<body class="auth-page" data-page="login">
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <div class="auth-layout">
+    <div class="auth-layout__panel">
+      <!-- ===== Header: brand + theme ===== -->
+      <header class="auth-layout__top">
+        <a class="brand-mark" href="../index.html"><span class="brand-mark__dot"></span><span class="brand-mark__name" translate="no">NovaDash</span></a>
+        <button class="button button--ghost button--icon-only theme-toggle" type="button" aria-pressed="false" aria-label="Switch theme" data-theme-toggle>
+          <svg class="icon theme-toggle__icon--sun" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-sun"></use></svg>
+          <svg class="icon theme-toggle__icon--moon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-moon"></use></svg>
+        </button>
+      </header>
+
+      <!-- ===== Main: sign-in form ===== -->
+      <main class="auth-layout__main" id="mainContent" tabindex="-1">
+        <div class="auth-layout__intro">
+          <h1 class="auth-layout__title">Sign in</h1>
+          <p class="auth-layout__lead">Pick up where this morning's numbers left off.</p>
+        </div>
+
+        <div class="alert alert--info">
+          <svg class="icon alert__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-info"></use></svg>
+          <p class="alert__message">Demo sign-in. Any email and a password of 8 or more characters will work. Only your email is kept in this browser.</p>
+        </div>
+
+        <div class="alert" data-form-status role="status" tabindex="-1"></div>
+
+        <form class="auth-layout__form" data-login-form novalidate>
+          <div class="form-field" data-field>
+            <label class="form-field__label" for="loginEmailInput">Work email</label>
+            <div class="form-field__control">
+              <input class="form-field__input" id="loginEmailInput" name="email" type="email" spellcheck="false" autocomplete="email" required aria-describedby="loginEmailError" placeholder="name@company.com">
+            </div>
+            <p class="form-field__error" id="loginEmailError" data-field-error></p>
+          </div>
+
+          <div class="form-field" data-field>
+            <label class="form-field__label" for="loginPasswordInput">Password</label>
+            <div class="form-field__control">
+              <input class="form-field__input" id="loginPasswordInput" name="password" type="password" autocomplete="current-password" required minlength="8" aria-describedby="loginPasswordError">
+              <button class="form-field__toggle" type="button" aria-label="Show password" aria-pressed="false" aria-controls="loginPasswordInput" data-password-toggle>
+                <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-eye"></use></svg>
+              </button>
+            </div>
+            <p class="form-field__error" id="loginPasswordError" data-field-error></p>
+          </div>
+
+          <div class="auth-layout__row">
+            <a class="auth-layout__alt-link" href="forgot-password.html">Forgot password?</a>
+          </div>
+
+          <button class="button button--brand button--pill button--large button--block" type="submit">
+            <span class="button__spinner" aria-hidden="true"></span>
+            <span class="button__label">Sign in</span>
+          </button>
+        </form>
+
+        <p class="auth-layout__alt-link">New to NovaDash? <a href="register.html">Create an account</a></p>
+      </main>
+
+      <!-- ===== Footer ===== -->
+      <footer class="auth-layout__footer">
+        <nav aria-label="Footer">
+          <ul class="auth-layout__footer-list">
+            <li><a class="auth-layout__footer-link" href="../index.html">Home</a></li>
+            <li><a class="auth-layout__footer-link" href="pricing.html">Pricing</a></li>
+          </ul>
+        </nav>
+        <p>NovaDash is a front-end demo. Authentication is simulated.</p>
+      </footer>
+    </div>
+
+    <!-- ===== Aside: what the product does ===== -->
+    <aside class="auth-layout__aside" aria-label="About NovaDash">
+      <p class="auth-aside__quote">Revenue, product usage and infrastructure on one screen, with what needs you first.</p>
+      <ul class="auth-aside__list">
+        <li class="auth-aside__item"><svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-chart-column"></use></svg>MRR, churn and failed payments</li>
+        <li class="auth-aside__item"><svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-activity"></use></svg>Active users and retention</li>
+        <li class="auth-aside__item"><svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-server"></use></svg>Uptime, latency and cloud spend</li>
+      </ul>
+    </aside>
+  </div>
+</body>
+</html>

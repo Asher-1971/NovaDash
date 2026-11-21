@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pricing · NovaDash</title>
+  <meta name="description" content="NovaDash plans: Starter, Growth, Scale and Enterprise. Monthly or annual billing (demo prices).">
+  <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <script type="module" src="../js/app.js"></script>
+</head>
+<body class="marketing-page" data-page="pricing" data-pages-prefix="">
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <!-- ===== Site header ===== -->
+  <header class="site-header">
+    <div class="marketing-container site-header__inner">
+      <a class="brand-mark" href="../index.html"><span class="brand-mark__dot"></span><span class="brand-mark__name" translate="no">NovaDash</span></a>
+      <nav class="site-header__nav" id="siteNavigation" aria-label="Main" data-site-nav>
+        <ul class="site-header__nav-list">
+          <li><a class="site-header__nav-link" href="../index.html#features">Product</a></li>
+          <li><a class="site-header__nav-link" href="pricing.html" aria-current="page">Pricing</a></li>
+          <li><a class="site-header__nav-link" href="../index.html#customers">Customers</a></li>
+          <li class="site-header__nav-item site-header__nav-item--account"><a class="site-header__nav-link" href="login.html" data-session-link data-session-href="dashboard.html">Sign in</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <button class="button button--ghost button--icon-only theme-toggle" type="button" aria-pressed="false" aria-label="Switch theme" data-theme-toggle>
+          <svg class="icon theme-toggle__icon--sun" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-sun"></use></svg>
+          <svg class="icon theme-toggle__icon--moon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-moon"></use></svg>
+        </button>
+        <a class="button button--ghost site-header__signin" href="login.html" data-session-link data-session-href="dashboard.html">Sign in</a>
+        <button class="button button--ghost button--icon-only site-header__menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNavigation" data-site-menu-toggle>
+          <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-menu"></use></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent" tabindex="-1">
+    <!-- ===== Tiers ===== -->
+    <section class="page-section page-section--inverse" aria-labelledby="pricingTitle">
+      <div class="marketing-container">
+        <div class="page-section__header">
+          <h1 class="page-section__heading page-section__heading--display" id="pricingTitle">One price per team, not per dashboard.</h1>
+          <p class="page-section__lead">Every plan includes revenue and usage. Infrastructure, SLOs and webhooks arrive as you grow. Prices are demo figures.</p>
+        </div>
+
+        <fieldset class="billing-cycle-toggle" role="radiogroup" data-billing-cycle>
+          <legend class="visually-hidden">Billing cycle</legend>
+          <span class="billing-cycle-toggle__option"><input class="billing-cycle-toggle__input" type="radio" name="billingCycle" id="cycleMonthly" value="monthly" checked><label class="billing-cycle-toggle__label" for="cycleMonthly">Monthly</label></span>
+          <span class="billing-cycle-toggle__option"><input class="billing-cycle-toggle__input" type="radio" name="billingCycle" id="cycleAnnual" value="annual"><label class="billing-cycle-toggle__label" for="cycleAnnual">Annual <span class="billing-cycle-toggle__saving" data-annual-saving></span></label></span>
+        </fieldset>
+        <p class="visually-hidden" aria-live="polite" data-cycle-announcement></p>
+
+        <div class="pricing-grid" data-pricing-grid></div>
+      </div>
+    </section>
+
+    <!-- ===== Comparison ===== -->
+    <section class="page-section" aria-labelledby="comparisonTitle">
+      <div class="marketing-container">
+        <div class="page-section__header">
+          <h2 class="page-section__heading" id="comparisonTitle">Compare every plan</h2>
+          <p class="page-section__lead">The full list, row by row.</p>
+        </div>
+        <div class="data-table data-table--comparison" role="region" aria-labelledby="comparisonCaption" tabindex="0">
+          <table class="data-table__table">
+            <caption class="data-table__caption" id="comparisonCaption">Features and limits by plan</caption>
+            <thead>
+              <tr>
+                <th class="data-table__header-cell" scope="col">Feature</th>
+                <th class="data-table__header-cell data-table__header-cell--numeric" scope="col">Starter</th>
+                <th class="data-table__header-cell data-table__header-cell--numeric" scope="col">Growth</th>
+                <th class="data-table__header-cell data-table__header-cell--numeric" scope="col">Scale</th>
+                <th class="data-table__header-cell data-table__header-cell--numeric" scope="col">Enterprise</th>
+              </tr>
+            </thead>
+            <tbody data-comparison-table></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="page-section page-section--inverse" aria-labelledby="faqTitle">
+      <div class="marketing-container">
+        <div class="page-section__header">
+          <h2 class="page-section__heading" id="faqTitle">Questions</h2>
+        </div>
+        <div class="faq-list" data-faq-list></div>
+      </div>
+    </section>
+
+    <!-- ===== Closing CTA ===== -->
+    <section class="page-section" aria-labelledby="pricingCtaTitle">
+      <div class="marketing-container cta-band">
+        <h2 class="cta-band__heading" id="pricingCtaTitle">Tomorrow morning, start with what needs you.</h2>
+        <div class="cta-band__actions">
+          <a class="button button--brand button--pill button--large" href="register.html">Start free trial</a>
+          <a class="button button--secondary button--pill button--large" href="login.html" data-session-link data-session-href="dashboard.html">Sign in to the demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="marketing-container">
+      <div class="site-footer__columns">
+        <div class="site-footer__about">
+          <a class="brand-mark" href="../index.html"><span class="brand-mark__dot"></span><span class="brand-mark__name" translate="no">NovaDash</span></a>
+          <p>Revenue, product usage and infrastructure in one control panel. A front-end demonstration project.</p>
+        </div>
+        <nav class="site-footer__column" aria-labelledby="footerProductHeading">
+          <h2 class="site-footer__heading" id="footerProductHeading">Product</h2>
+          <a class="site-footer__link" href="../index.html#features">Features</a>
+          <a class="site-footer__link" href="pricing.html">Pricing</a>
+          <a class="site-footer__link" href="../index.html#customers">Customers</a>
+        </nav>
+        <nav class="site-footer__column" aria-labelledby="footerDemoHeading">
+          <h2 class="site-footer__heading" id="footerDemoHeading">Demo app</h2>
+          <a class="site-footer__link" href="dashboard.html">Dashboard</a>
+          <a class="site-footer__link" href="analytics.html">Analytics</a>
+          <a class="site-footer__link" href="settings.html">Settings</a>
+        </nav>
+        <nav class="site-footer__column" aria-labelledby="footerAccountHeading">
+          <h2 class="site-footer__heading" id="footerAccountHeading">Account</h2>
+          <a class="site-footer__link" href="login.html">Sign in</a>
+          <a class="site-footer__link" href="register.html">Create account</a>
+          <a class="site-footer__link" href="forgot-password.html">Reset password</a>
+        </nav>
+      </div>
+      <div class="site-footer__legal">
+        <p>© 2026 NovaDash demo. All companies, people and figures are fictional.</p>
+        <p>Icons: Lucide (ISC). Type: Schibsted Grotesk, IBM Plex Mono (OFL).</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Contact sales (Enterprise) dialog: demo form ===== -->
+  <dialog class="modal" id="contactSalesModal" aria-labelledby="contactSalesTitle" aria-describedby="contactSalesDescription" data-contact-dialog>
+    <form class="modal__panel" novalidate>
+      <div class="modal__header">
+        <div>
+          <h2 class="modal__title" id="contactSalesTitle">Talk to sales</h2>
+          <p class="modal__description" id="contactSalesDescription">Demo form: it validates, but nothing is sent.</p>
+        </div>
+        <button class="modal__close button button--ghost button--icon-only" type="button" aria-label="Close dialog" data-modal-close><svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-x"></use></svg></button>
+      </div>
+      <div class="modal__body">
+        <div class="alert" data-form-status role="status"></div>
+        <div class="form-field" data-field>
+          <label class="form-field__label" for="contactNameInput">Full name</label>
+          <input class="form-field__input" id="contactNameInput" name="contactName" type="text" autocomplete="name" required minlength="2" aria-describedby="contactNameError">
+          <p class="form-field__error" id="contactNameError" data-field-error></p>
+        </div>
+        <div class="form-field" data-field>
+          <label class="form-field__label" for="contactEmailInput">Work email</label>
+          <input class="form-field__input" id="contactEmailInput" name="contactEmail" type="email" spellcheck="false" autocomplete="email" required placeholder="name@company.com" aria-describedby="contactEmailError">
+          <p class="form-field__error" id="contactEmailError" data-field-error></p>
+        </div>
+        <div class="form-field" data-field>
+          <label class="form-field__label" for="contactTeamSelect">Team size</label>
+          <select class="form-field__select" id="contactTeamSelect" name="teamSize" required aria-describedby="contactTeamError">
+            <option value="">Choose a range</option>
+            <option value="25-100">25–100 people</option>
+            <option value="100-500">100–500 people</option>
+            <option value="500+">500+ people</option>
+          </select>
+          <p class="form-field__error" id="contactTeamError" data-field-error></p>
+        </div>
+        <div class="form-field" data-field>
+          <label class="form-field__label" for="contactMessageInput">What do you need? <span class="form-field__optional">(optional)</span></label>
+          <textarea class="form-field__input form-field__input--textarea" id="contactMessageInput" name="message" rows="3" aria-describedby="contactMessageError"></textarea>
+          <p class="form-field__error" id="contactMessageError" data-field-error></p>
+        </div>
+      </div>
+      <div class="modal__footer">
+        <button class="button button--ghost" type="button" data-modal-close>Cancel</button>
+        <button class="button button--primary" type="submit"><span class="button__spinner" aria-hidden="true"></span><span class="button__label">Send request</span></button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

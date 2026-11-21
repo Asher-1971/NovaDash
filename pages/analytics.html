@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analytics · NovaDash</title>
+  <meta name="description" content="NovaDash analytics: revenue, product usage, infrastructure charts and system logs (demo data).">
+  <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <script type="module" src="../js/app.js"></script>
+</head>
+<body class="app-page" data-page="analytics" data-requires-session>
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <div class="app-shell" data-app-shell>
+    <aside class="sidebar" id="primarySidebar" aria-label="Primary" data-sidebar>
+      <a class="sidebar__brand brand-mark" href="dashboard.html"><span class="brand-mark__dot"></span><span class="brand-mark__name" translate="no">NovaDash</span></a>
+      <nav class="sidebar__nav" aria-label="Main navigation">
+        <ul class="sidebar__list">
+          <li><a class="sidebar__link" href="dashboard.html"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-layout-dashboard"></use></svg><span class="sidebar__label">Overview</span></a></li>
+          <li><a class="sidebar__link" href="analytics.html" aria-current="page"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-chart-line"></use></svg><span class="sidebar__label">Analytics</span></a></li>
+          <li><a class="sidebar__link" href="settings.html"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-settings"></use></svg><span class="sidebar__label">Settings</span></a></li>
+          <li><a class="sidebar__link" href="settings.html#billing"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-credit-card"></use></svg><span class="sidebar__label">Billing</span></a></li>
+        </ul>
+        <p class="sidebar__group-label">Explore</p>
+        <ul class="sidebar__list">
+          <li><a class="sidebar__link" href="pricing.html"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-rocket"></use></svg><span class="sidebar__label">Plans &amp; pricing</span></a></li>
+          <li><a class="sidebar__link" href="../index.html"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-arrow-right"></use></svg><span class="sidebar__label">Public site</span></a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <button class="sidebar__collapse-toggle" type="button" aria-expanded="true" aria-controls="primarySidebar" aria-label="Collapse sidebar" data-sidebar-collapse>
+          <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-panel-left-close"></use></svg><span class="sidebar__label">Collapse</span>
+        </button>
+      </div>
+    </aside>
+    <div class="sidebar-scrim" data-sidebar-scrim hidden></div>
+
+    <div class="app-shell__main">
+      <header class="topbar">
+        <button class="topbar__menu-toggle button button--ghost button--icon-only" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primarySidebar" data-sidebar-open>
+          <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-menu"></use></svg>
+        </button>
+        <h1 class="topbar__title">Analytics</h1>
+        <div class="topbar__actions">
+          <button class="button button--ghost button--icon-only theme-toggle" type="button" aria-pressed="false" aria-label="Switch theme" data-theme-toggle>
+            <svg class="icon theme-toggle__icon--sun" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-sun"></use></svg>
+            <svg class="icon theme-toggle__icon--moon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-moon"></use></svg>
+          </button>
+          <div class="user-menu" data-user-menu>
+            <button class="user-menu__trigger" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="userMenuPanel" data-user-menu-trigger>
+              <span class="user-menu__avatar" aria-hidden="true" data-profile-initials>PR</span>
+              <span class="user-menu__name" data-profile-name>Priya Raman</span>
+              <span class="visually-hidden">Account menu</span>
+              <svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-chevron-down"></use></svg>
+            </button>
+            <div class="user-menu__panel" id="userMenuPanel" role="menu" aria-label="Account" data-user-menu-panel hidden>
+              <div class="user-menu__identity" role="none">
+                <span data-profile-name>Priya Raman</span>
+                <span class="user-menu__identity-email" data-profile-email>priya@lumenledger.example</span>
+              </div>
+              <a class="user-menu__item" role="menuitem" href="settings.html#profile"><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-user"></use></svg>Profile</a>
+              <a class="user-menu__item" role="menuitem" href="settings.html#billing"><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-credit-card"></use></svg>Billing</a>
+              <button class="user-menu__item" role="menuitem" type="button" data-sign-out><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-log-out"></use></svg>Sign out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-content" id="mainContent" tabindex="-1">
+        <div class="page-intro">
+          <div>
+            <h2 class="page-intro__heading">Twelve months at a glance</h2>
+            <p class="page-intro__lead">December 2025 to November 2026. Every chart has its numbers one click away, and the totals match the dashboard.</p>
+          </div>
+          <nav aria-label="Analytics sections">
+            <ul class="segmented-control">
+              <li class="segmented-control__option"><a class="segmented-control__label" href="#revenue">Revenue</a></li>
+              <li class="segmented-control__option"><a class="segmented-control__label" href="#usage">Usage</a></li>
+              <li class="segmented-control__option"><a class="segmented-control__label" href="#infrastructure">Infrastructure</a></li>
+              <li class="segmented-control__option"><a class="segmented-control__label" href="#logs">Logs</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- ===== Revenue ===== -->
+        <section class="analytics-section" id="revenue" aria-labelledby="revenueHeading">
+          <h2 class="analytics-section__heading" id="revenueHeading">Revenue</h2>
+          <div class="analytics-split">
+            <div class="panel chart-panel">
+              <header class="panel__header">
+                <div>
+                  <h3 class="panel__title">Monthly recurring revenue</h3>
+                  <p class="chart-panel__summary" data-revenue-summary></p>
+                </div>
+                <p class="panel__subtitle">Axis max <span data-revenue-axis-max></span></p>
+              </header>
+              <div class="chart-panel__figure">
+                <ol class="bar-chart" data-revenue-bars></ol>
+                <div class="bar-chart__labels" aria-hidden="true" data-revenue-bar-labels></div>
+              </div>
+              <details class="chart-panel__data">
+                <summary class="chart-panel__data-toggle">Show data table</summary>
+                <div class="data-table data-table--compact" role="region" aria-labelledby="revenueTableCaption" tabindex="0">
+                  <table class="data-table__table">
+                    <caption class="data-table__caption" id="revenueTableCaption">Monthly recurring revenue and month-over-month change</caption>
+                    <thead><tr><th class="data-table__header-cell" scope="col">Month</th><th class="data-table__header-cell data-table__header-cell--numeric" scope="col">MRR</th><th class="data-table__header-cell data-table__header-cell--numeric" scope="col">Change</th></tr></thead>
+                    <tbody data-revenue-table></tbody>
+                  </table>
+                </div>
+              </details>
+            </div>
+            <div class="panel">
+              <h3 class="panel__title">Subscribers this month</h3>
+              <dl class="stat-list">
+                <div class="stat-list__item"><dt class="stat-list__term">Active subscribers</dt><dd class="stat-list__value" data-revenue-stat="subscribers"></dd></div>
+                <div class="stat-list__item"><dt class="stat-list__term">Churn rate</dt><dd class="stat-list__value" data-revenue-stat="churn"></dd></div>
+                <div class="stat-list__item"><dt class="stat-list__term">Revenue per subscriber</dt><dd class="stat-list__value" data-revenue-stat="arpu"></dd></div>
+                <div class="stat-list__item"><dt class="stat-list__term">MRR at risk (failed payments)</dt><dd class="stat-list__value" data-revenue-stat="atRisk"></dd></div>
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Product usage ===== -->
+        <section class="analytics-section" id="usage" aria-labelledby="usageHeading">
+          <h2 class="analytics-section__heading" id="usageHeading">Product usage</h2>
+          <div class="panel chart-panel">
+            <header class="panel__header">
+              <div>
+                <h3 class="panel__title">Monthly active users</h3>
+                <p class="chart-panel__summary" data-usage-summary></p>
+              </div>
+            </header>
+            <div class="chart-panel__figure">
+              <svg class="trend-line" viewBox="0 0 600 240" preserveAspectRatio="none" role="img" aria-label="Monthly active users trend" data-usage-trend>
+                <g data-trend-grid></g>
+                <path class="trend-line__area" data-trend-area></path>
+                <polyline class="trend-line__path" data-trend-path></polyline>
+              </svg>
+              <div class="trend-line__axis" aria-hidden="true"><span data-usage-axis-start></span><span data-usage-axis-end></span></div>
+            </div>
+            <details class="chart-panel__data">
+              <summary class="chart-panel__data-toggle">Show data table</summary>
+              <div class="data-table data-table--compact" role="region" aria-labelledby="usageTableCaption" tabindex="0">
+                <table class="data-table__table">
+                  <caption class="data-table__caption" id="usageTableCaption">Monthly active users by month</caption>
+                  <thead><tr><th class="data-table__header-cell" scope="col">Month</th><th class="data-table__header-cell data-table__header-cell--numeric" scope="col">Active users</th></tr></thead>
+                  <tbody data-usage-table></tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- ===== Infrastructure ===== -->
+        <section class="analytics-section" id="infrastructure" aria-labelledby="infrastructureHeading">
+          <h2 class="analytics-section__heading" id="infrastructureHeading">Infrastructure</h2>
+          <div class="panel">
+            <h3 class="panel__title">Reliability and quota, last 30 days</h3>
+            <div class="ring-grid">
+              <figure class="progress-ring progress-ring--success" data-ring="uptime">
+                <div class="progress-ring__frame">
+                  <svg class="progress-ring__svg" viewBox="0 0 120 120" aria-hidden="true"><circle class="progress-ring__track" cx="60" cy="60" r="52"></circle><circle class="progress-ring__indicator" cx="60" cy="60" r="52" data-ring-indicator></circle></svg>
+                  <span class="progress-ring__value" data-ring-value></span>
+                </div>
+                <figcaption><span class="progress-ring__label">Uptime</span><br><span class="progress-ring__detail" data-ring-detail></span></figcaption>
+              </figure>
+              <figure class="progress-ring progress-ring--brand" data-ring="errorBudget">
+                <div class="progress-ring__frame">
+                  <svg class="progress-ring__svg" viewBox="0 0 120 120" aria-hidden="true"><circle class="progress-ring__track" cx="60" cy="60" r="52"></circle><circle class="progress-ring__indicator" cx="60" cy="60" r="52" data-ring-indicator></circle></svg>
+                  <span class="progress-ring__value" data-ring-value></span>
+                </div>
+                <figcaption><span class="progress-ring__label">Error budget used</span><br><span class="progress-ring__detail" data-ring-detail></span></figcaption>
+              </figure>
+              <figure class="progress-ring" data-ring="eventQuota">
+                <div class="progress-ring__frame">
+                  <svg class="progress-ring__svg" viewBox="0 0 120 120" aria-hidden="true"><circle class="progress-ring__track" cx="60" cy="60" r="52"></circle><circle class="progress-ring__indicator" cx="60" cy="60" r="52" data-ring-indicator></circle></svg>
+                  <span class="progress-ring__value" data-ring-value></span>
+                </div>
+                <figcaption><span class="progress-ring__label">Event quota used</span><br><span class="progress-ring__detail" data-ring-detail></span></figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="analytics-split">
+            <div class="panel chart-panel">
+              <header class="panel__header">
+                <div>
+                  <h3 class="panel__title">p95 latency, api-gateway</h3>
+                  <p class="chart-panel__summary" data-latency-summary></p>
+                </div>
+              </header>
+              <div class="chart-panel__figure">
+                <svg class="trend-line trend-line--brand" viewBox="0 0 600 240" preserveAspectRatio="none" role="img" aria-label="p95 latency trend" data-latency-trend>
+                  <g data-trend-grid></g>
+                  <path class="trend-line__area" data-trend-area></path>
+                  <polyline class="trend-line__path" data-trend-path></polyline>
+                </svg>
+                <div class="trend-line__axis" aria-hidden="true"><span data-latency-axis-start></span><span data-latency-axis-end></span></div>
+              </div>
+              <details class="chart-panel__data">
+                <summary class="chart-panel__data-toggle">Show data table</summary>
+                <div class="data-table data-table--compact" role="region" aria-labelledby="latencyTableCaption" tabindex="0">
+                  <table class="data-table__table">
+                    <caption class="data-table__caption" id="latencyTableCaption">Daily p95 latency</caption>
+                    <thead><tr><th class="data-table__header-cell" scope="col">Day</th><th class="data-table__header-cell data-table__header-cell--numeric" scope="col">p95</th></tr></thead>
+                    <tbody data-latency-table></tbody>
+                  </table>
+                </div>
+              </details>
+            </div>
+
+            <div class="panel chart-panel">
+              <header class="panel__header">
+                <div>
+                  <h3 class="panel__title">Cloud spend by service</h3>
+                  <p class="chart-panel__summary" data-spend-summary></p>
+                </div>
+              </header>
+              <figure class="donut-chart">
+                <div class="donut-chart__ring" role="img" aria-label="Cloud spend by service" data-spend-donut>
+                  <div class="donut-chart__center" aria-hidden="true"><span class="donut-chart__total" data-spend-total></span><span class="donut-chart__caption">30 days</span></div>
+                </div>
+                <figcaption class="donut-chart__legend"><ul class="chart-legend" data-spend-legend></ul></figcaption>
+              </figure>
+              <details class="chart-panel__data">
+                <summary class="chart-panel__data-toggle">Show data table</summary>
+                <div class="data-table data-table--compact" role="region" aria-labelledby="spendTableCaption" tabindex="0">
+                  <table class="data-table__table">
+                    <caption class="data-table__caption" id="spendTableCaption">Cloud spend by service, last 30 days</caption>
+                    <thead><tr><th class="data-table__header-cell" scope="col">Service</th><th class="data-table__header-cell data-table__header-cell--numeric" scope="col">Spend</th><th class="data-table__header-cell data-table__header-cell--numeric" scope="col">Share</th></tr></thead>
+                    <tbody data-spend-table></tbody>
+                    <tfoot class="data-table__foot"><tr><th class="data-table__cell" scope="row">Total</th><td class="data-table__cell data-table__cell--numeric" data-spend-table-total></td><td class="data-table__cell data-table__cell--numeric">100.00%</td></tr></tfoot>
+                  </table>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Logs ===== -->
+        <section class="analytics-section" id="logs" aria-labelledby="logsHeading">
+          <h2 class="analytics-section__heading" id="logsHeading">System logs</h2>
+          <div class="panel">
+            <div class="log-toolbar">
+              <fieldset class="segmented-control" data-log-level-filter>
+                <legend class="visually-hidden">Filter by level</legend>
+                <span class="segmented-control__option"><input class="segmented-control__input" type="radio" name="logLevel" id="logLevelAll" value="ALL" checked><label class="segmented-control__label" for="logLevelAll">All</label></span>
+                <span class="segmented-control__option"><input class="segmented-control__input" type="radio" name="logLevel" id="logLevelError" value="ERROR"><label class="segmented-control__label" for="logLevelError">Errors</label></span>
+                <span class="segmented-control__option"><input class="segmented-control__input" type="radio" name="logLevel" id="logLevelWarn" value="WARN"><label class="segmented-control__label" for="logLevelWarn">Warnings</label></span>
+                <span class="segmented-control__option"><input class="segmented-control__input" type="radio" name="logLevel" id="logLevelInfo" value="INFO"><label class="segmented-control__label" for="logLevelInfo">Info</label></span>
+              </fieldset>
+              <div class="form-field log-toolbar__search">
+                <label class="visually-hidden" for="logSearchInput">Search logs</label>
+                <div class="form-field__control">
+                  <svg class="icon form-field__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-search"></use></svg>
+                  <input class="form-field__input" id="logSearchInput" type="search" placeholder="Search service or message…" data-log-search>
+                </div>
+              </div>
+              <button class="button button--secondary" type="button" data-log-export><svg class="icon button__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-download"></use></svg><span class="button__label">Export CSV</span></button>
+            </div>
+            <p class="panel__subtitle" data-log-count aria-live="polite"></p>
+            <ul class="log-list" aria-label="Log entries, newest first" tabindex="0" data-log-list></ul>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p>NovaDash demo · all figures are fictional · <a href="../index.html">Public site</a></p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

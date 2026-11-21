@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NovaDash · Revenue, usage and infrastructure in one control panel</title>
+  <meta name="description" content="NovaDash shows a small software company's revenue, product usage and infrastructure on one screen, starting with what needs attention. A front-end demo.">
+  <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Design system: load order is fixed (DESIGN.md section 8) -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- Single local entry module (deferred by spec); needs an HTTP server -->
+  <script type="module" src="js/app.js"></script>
+</head>
+<body class="marketing-page" data-page="landing" data-pages-prefix="pages/">
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <!-- ===== Site header ===== -->
+  <header class="site-header">
+    <div class="marketing-container site-header__inner">
+      <a class="brand-mark" href="index.html" aria-current="page"><span class="brand-mark__dot"></span><span class="brand-mark__name" translate="no">NovaDash</span></a>
+      <nav class="site-header__nav" id="siteNavigation" aria-label="Main" data-site-nav>
+        <ul class="site-header__nav-list">
+          <li><a class="site-header__nav-link" href="#features">Product</a></li>
+          <li><a class="site-header__nav-link" href="pages/pricing.html">Pricing</a></li>
+          <li><a class="site-header__nav-link" href="#customers">Customers</a></li>
+          <li class="site-header__nav-item site-header__nav-item--account"><a class="site-header__nav-link" href="pages/login.html" data-session-link data-session-href="pages/dashboard.html">Sign in</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <button class="button button--ghost button--icon-only theme-toggle" type="button" aria-pressed="false" aria-label="Switch theme" data-theme-toggle>
+          <svg class="icon theme-toggle__icon--sun" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-sun"></use></svg>
+          <svg class="icon theme-toggle__icon--moon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-moon"></use></svg>
+        </button>
+        <a class="button button--ghost site-header__signin" href="pages/login.html" data-session-link data-session-href="pages/dashboard.html">Sign in</a>
+        <button class="button button--ghost button--icon-only site-header__menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNavigation" data-site-menu-toggle>
+          <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#icon-menu"></use></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent" tabindex="-1">
+    <!-- ===== Hero: the product, working ===== -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="marketing-container hero__layout">
+        <div class="hero__copy">
+          <h1 class="hero__title" id="heroTitle">Know what needs you before coffee.</h1>
+          <p class="hero__lead">Revenue, usage and infrastructure on one screen, starting with last night.</p>
+          <div class="hero__actions">
+            <a class="button button--brand button--pill button--large" href="pages/register.html">Start free trial</a>
+            <a class="button button--secondary button--pill button--large" href="pages/pricing.html">See pricing</a>
+          </div>
+          <p class="hero__note">Free Starter plan. The preview on the right is the real dashboard running on demo data.</p>
+        </div>
+
+        <div class="product-window" role="figure" aria-label="Live preview of the NovaDash dashboard with demo data">
+          <div class="product-window__chrome" aria-hidden="true">
+            <span class="product-window__dot"></span><span class="product-window__dot"></span><span class="product-window__dot"></span>
+            <span class="product-window__address">novadash.example/overview</span>
+          </div>
+          <div class="product-window__body">
+            <p class="preview-chart__head"><span>Needs attention</span></p>
+            <ul class="attention-list attention-list--compact" aria-label="Needs attention" data-preview-attention></ul>
+            <div class="preview-grid" data-preview-kpis></div>
+            <div class="preview-chart">
+              <div class="preview-chart__head"><span>Monthly recurring revenue, 12 months</span><span data-preview-trend-value></span></div>
+              <svg class="trend-line trend-line--compact" viewBox="0 0 600 160" preserveAspectRatio="none" role="img" aria-label="MRR trend" data-preview-trend>
+                <g data-trend-grid></g>
+                <path class="trend-line__area" data-trend-area></path>
+                <polyline class="trend-line__path" data-trend-path></polyline>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Features: one panel, three signals ===== -->
+    <section class="page-section page-section--inverse" id="features" aria-labelledby="featuresTitle">
+      <div class="marketing-container">
+        <div class="page-section__header">
+          <h2 class="page-section__heading" id="featuresTitle">Three tools' worth of signals, one morning view.</h2>
+          <p class="page-section__lead">Billing, analytics and a status page usually live in three tabs. NovaDash keeps them next to each other, so a latency spike and a failed payment can be weighed against each other.</p>
+        </div>
+        <ul class="feature-list" data-feature-list></ul>
+      </div>
+    </section>
+
+    <!-- ===== Testimonials (fictional demo personas) ===== -->
+    <section class="page-section" id="customers" aria-labelledby="customersTitle">
+      <div class="marketing-container">
+        <div class="page-section__header">
+          <h2 class="page-section__heading" id="customersTitle">What operators say after a month.</h2>
+        </div>
+        <ul class="testimonial-list" data-testimonials></ul>
+        <p class="demo-note">These quotes are from fictional demo personas, written to show how the testimonial layout reads.</p>
+      </div>
+    </section>
+
+    <!-- ===== Pricing (interactive tiers) on the paper polarity; Growth inverts ===== -->
+    <section class="page-section page-section--inverse" id="pricing" aria-labelledby="pricingTitle">
+      <div class="marketing-container">
+        <div class="page-section__header">
+          <h2 class="page-section__heading" id="pricingTitle">Plans that grow with the team.</h2>
+          <p class="page-section__lead">Switch between monthly and annual billing. <a href="pages/pricing.html">See the full comparison</a>.</p>
+        </div>
+        <fieldset class="billing-cycle-toggle" role="radiogroup" data-billing-cycle>
+          <legend class="visually-hidden">Billing cycle</legend>
+          <span class="billing-cycle-toggle__option"><input class="billing-cycle-toggle__input" type="radio" name="billingCycle" id="cycleMonthly" value="monthly" checked><label class="billing-cycle-toggle__label" for="cycleMonthly">Monthly</label></span>
+          <span class="billing-cycle-toggle__option"><input class="billing-cycle-toggle__input" type="radio" name="billingCycle" id="cycleAnnual" value="annual"><label class="billing-cycle-toggle__label" for="cycleAnnual">Annual <span class="billing-cycle-toggle__saving" data-annual-saving></span></label></span>
+        </fieldset>
+        <p class="visually-hidden" aria-live="polite" data-cycle-announcement></p>
+        <div class="pricing-grid" data-pricing-grid></div>
+      </div>
+    </section>
+
+    <!-- ===== Closing CTA ===== -->
+    <section class="page-section" aria-labelledby="closingTitle">
+      <div class="marketing-container cta-band">
+        <h2 class="cta-band__heading" id="closingTitle">See your own morning in NovaDash.</h2>
+        <div class="cta-band__actions">
+          <a class="button button--brand button--pill button--large" href="pages/register.html">Start free trial</a>
+          <a class="button button--secondary button--pill button--large" href="pages/login.html" data-session-link data-session-href="pages/dashboard.html">Sign in to the demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="marketing-container">
+      <div class="site-footer__columns">
+        <div class="site-footer__about">
+          <a class="brand-mark" href="index.html"><span class="brand-mark__dot"></span><span class="brand-mark__name" translate="no">NovaDash</span></a>
+          <p>Revenue, product usage and infrastructure in one control panel. A front-end demonstration project.</p>
+        </div>
+        <nav class="site-footer__column" aria-labelledby="footerProductHeading">
+          <h2 class="site-footer__heading" id="footerProductHeading">Product</h2>
+          <a class="site-footer__link" href="#features">Features</a>
+          <a class="site-footer__link" href="pages/pricing.html">Pricing</a>
+          <a class="site-footer__link" href="#customers">Customers</a>
+        </nav>
+        <nav class="site-footer__column" aria-labelledby="footerDemoHeading">
+          <h2 class="site-footer__heading" id="footerDemoHeading">Demo app</h2>
+          <a class="site-footer__link" href="pages/dashboard.html">Dashboard</a>
+          <a class="site-footer__link" href="pages/analytics.html">Analytics</a>
+          <a class="site-footer__link" href="pages/settings.html">Settings</a>
+        </nav>
+        <nav class="site-footer__column" aria-labelledby="footerAccountHeading">
+          <h2 class="site-footer__heading" id="footerAccountHeading">Account</h2>
+          <a class="site-footer__link" href="pages/login.html">Sign in</a>
+          <a class="site-footer__link" href="pages/register.html">Create account</a>
+          <a class="site-footer__link" href="pages/forgot-password.html">Reset password</a>
+        </nav>
+      </div>
+      <div class="site-footer__legal">
+        <p>© 2026 NovaDash demo. All companies, people and figures are fictional.</p>
+        <p>Icons: Lucide (ISC). Type: Schibsted Grotesk, IBM Plex Mono (OFL).</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
