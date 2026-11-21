@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings · NovaDash</title>
+  <meta name="description" content="NovaDash settings: profile, security, notifications and billing (demo).">
+  <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <script type="module" src="../js/app.js"></script>
+</head>
+<body class="app-page" data-page="settings" data-requires-session>
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <div class="app-shell" data-app-shell>
+    <aside class="sidebar" id="primarySidebar" aria-label="Primary" data-sidebar>
+      <a class="sidebar__brand brand-mark" href="dashboard.html"><span class="brand-mark__dot"></span><span class="brand-mark__name" translate="no">NovaDash</span></a>
+      <nav class="sidebar__nav" aria-label="Main navigation">
+        <ul class="sidebar__list">
+          <li><a class="sidebar__link" href="dashboard.html"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-layout-dashboard"></use></svg><span class="sidebar__label">Overview</span></a></li>
+          <li><a class="sidebar__link" href="analytics.html"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-chart-line"></use></svg><span class="sidebar__label">Analytics</span></a></li>
+          <li><a class="sidebar__link" href="settings.html" aria-current="page"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-settings"></use></svg><span class="sidebar__label">Settings</span></a></li>
+          <li><a class="sidebar__link" href="settings.html#billing"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-credit-card"></use></svg><span class="sidebar__label">Billing</span></a></li>
+        </ul>
+        <p class="sidebar__group-label">Explore</p>
+        <ul class="sidebar__list">
+          <li><a class="sidebar__link" href="pricing.html"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-rocket"></use></svg><span class="sidebar__label">Plans &amp; pricing</span></a></li>
+          <li><a class="sidebar__link" href="../index.html"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-arrow-right"></use></svg><span class="sidebar__label">Public site</span></a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <button class="sidebar__collapse-toggle" type="button" aria-expanded="true" aria-controls="primarySidebar" aria-label="Collapse sidebar" data-sidebar-collapse>
+          <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-panel-left-close"></use></svg><span class="sidebar__label">Collapse</span>
+        </button>
+      </div>
+    </aside>
+    <div class="sidebar-scrim" data-sidebar-scrim hidden></div>
+
+    <div class="app-shell__main">
+      <header class="topbar">
+        <button class="topbar__menu-toggle button button--ghost button--icon-only" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primarySidebar" data-sidebar-open>
+          <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-menu"></use></svg>
+        </button>
+        <h1 class="topbar__title">Settings</h1>
+        <div class="topbar__actions">
+          <button class="button button--ghost button--icon-only theme-toggle" type="button" aria-pressed="false" aria-label="Switch theme" data-theme-toggle>
+            <svg class="icon theme-toggle__icon--sun" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-sun"></use></svg>
+            <svg class="icon theme-toggle__icon--moon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-moon"></use></svg>
+          </button>
+          <div class="user-menu" data-user-menu>
+            <button class="user-menu__trigger" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="userMenuPanel" data-user-menu-trigger>
+              <span class="user-menu__avatar" aria-hidden="true" data-profile-initials>PR</span>
+              <span class="user-menu__name" data-profile-name>Priya Raman</span>
+              <span class="visually-hidden">Account menu</span>
+              <svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-chevron-down"></use></svg>
+            </button>
+            <div class="user-menu__panel" id="userMenuPanel" role="menu" aria-label="Account" data-user-menu-panel hidden>
+              <div class="user-menu__identity" role="none">
+                <span data-profile-name>Priya Raman</span>
+                <span class="user-menu__identity-email" data-profile-email>priya@lumenledger.example</span>
+              </div>
+              <a class="user-menu__item" role="menuitem" href="settings.html#profile"><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-user"></use></svg>Profile</a>
+              <a class="user-menu__item" role="menuitem" href="settings.html#billing"><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-credit-card"></use></svg>Billing</a>
+              <button class="user-menu__item" role="menuitem" type="button" data-sign-out><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-log-out"></use></svg>Sign out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-content" id="mainContent" tabindex="-1">
+        <div class="page-intro">
+          <div>
+            <h2 class="page-intro__heading">Account settings</h2>
+            <p class="page-intro__lead">Profile, security, notifications and your NovaDash plan.</p>
+          </div>
+        </div>
+
+        <div class="tabs" data-tabs>
+          <div class="tabs__list" role="tablist" aria-label="Settings sections">
+            <button class="tabs__tab" role="tab" id="tabProfile" data-tab="profile" aria-selected="true" aria-controls="panelProfile" tabindex="0" type="button"><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-user"></use></svg>Profile</button>
+            <button class="tabs__tab" role="tab" id="tabSecurity" data-tab="security" aria-selected="false" aria-controls="panelSecurity" tabindex="-1" type="button"><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-shield-check"></use></svg>Security</button>
+            <button class="tabs__tab" role="tab" id="tabNotifications" data-tab="notifications" aria-selected="false" aria-controls="panelNotifications" tabindex="-1" type="button"><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-bell"></use></svg>Notifications</button>
+            <button class="tabs__tab" role="tab" id="tabBilling" data-tab="billing" aria-selected="false" aria-controls="panelBilling" tabindex="-1" type="button"><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-credit-card"></use></svg>Billing</button>
+          </div>
+
+          <!-- ===== Profile ===== -->
+          <section class="tabs__panel" role="tabpanel" id="panelProfile" aria-labelledby="tabProfile" tabindex="0">
+            <form class="panel" data-profile-form novalidate>
+              <header class="panel__header">
+                <div>
+                  <h3 class="panel__title">Profile</h3>
+                  <p class="panel__subtitle">Shown in the top bar on every page. Saved in this browser.</p>
+                </div>
+              </header>
+              <div class="form-grid">
+                <div class="form-field" data-field>
+                  <label class="form-field__label" for="profileNameInput">Full name</label>
+                  <input class="form-field__input" id="profileNameInput" name="fullName" type="text" autocomplete="name" required minlength="2" aria-describedby="profileNameError">
+                  <p class="form-field__error" id="profileNameError" data-field-error></p>
+                </div>
+                <div class="form-field" data-field>
+                  <label class="form-field__label" for="profileEmailInput">Work email</label>
+                  <input class="form-field__input" id="profileEmailInput" name="email" type="email" spellcheck="false" autocomplete="email" required placeholder="name@company.com" aria-describedby="profileEmailError">
+                  <p class="form-field__error" id="profileEmailError" data-field-error></p>
+                </div>
+                <div class="form-field" data-field>
+                  <label class="form-field__label" for="profileRoleInput">Role <span class="form-field__optional">(optional)</span></label>
+                  <input class="form-field__input" id="profileRoleInput" name="role" type="text" autocomplete="organization-title" aria-describedby="profileRoleError">
+                  <p class="form-field__error" id="profileRoleError" data-field-error></p>
+                </div>
+                <div class="form-field" data-field>
+                  <label class="form-field__label" for="profileCompanyInput">Company</label>
+                  <input class="form-field__input" id="profileCompanyInput" name="company" type="text" autocomplete="organization" required aria-describedby="profileCompanyError">
+                  <p class="form-field__error" id="profileCompanyError" data-field-error></p>
+                </div>
+                <div class="form-field" data-field>
+                  <label class="form-field__label" for="profileTimezoneSelect">Timezone</label>
+                  <select class="form-field__select" id="profileTimezoneSelect" name="timezone" aria-describedby="profileTimezoneHint"></select>
+                  <p class="form-field__hint" id="profileTimezoneHint">Dashboard times are shown in UTC in this demo.</p>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="button button--ghost" type="reset">Discard changes</button>
+                <button class="button button--primary" type="submit"><span class="button__spinner" aria-hidden="true"></span><span class="button__label">Save profile</span></button>
+              </div>
+            </form>
+          </section>
+
+          <!-- ===== Security ===== -->
+          <section class="tabs__panel" role="tabpanel" id="panelSecurity" aria-labelledby="tabSecurity" tabindex="0" hidden>
+            <form class="panel" data-password-form novalidate>
+              <header class="panel__header">
+                <div>
+                  <h3 class="panel__title">Change password</h3>
+                  <p class="panel__subtitle">Simulated: the form validates, but no password is sent or stored.</p>
+                </div>
+              </header>
+              <!-- Lets password managers associate the change with the account (Chrome a11y guidance) -->
+              <input type="email" spellcheck="false" name="username" autocomplete="username" hidden data-profile-username>
+              <div class="form-grid">
+                <div class="form-field form-grid__full" data-field>
+                  <label class="form-field__label" for="currentPasswordInput">Current password</label>
+                  <div class="form-field__control">
+                    <input class="form-field__input" id="currentPasswordInput" name="currentPassword" type="password" autocomplete="current-password" required aria-describedby="currentPasswordError">
+                    <button class="form-field__toggle" type="button" aria-label="Show password" aria-pressed="false" aria-controls="currentPasswordInput" data-password-toggle><svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-eye"></use></svg></button>
+                  </div>
+                  <p class="form-field__error" id="currentPasswordError" data-field-error></p>
+                </div>
+                <div class="form-field" data-field>
+                  <label class="form-field__label" for="newPasswordInput">New password</label>
+                  <div class="form-field__control">
+                    <input class="form-field__input" id="newPasswordInput" name="newPassword" type="password" autocomplete="new-password" required minlength="8" pattern="(?=.*[A-Za-z])(?=.*\d).{8,}" data-pattern-message="Use at least one letter and one number." aria-describedby="newPasswordHint newPasswordError">
+                    <button class="form-field__toggle" type="button" aria-label="Show password" aria-pressed="false" aria-controls="newPasswordInput" data-password-toggle>
+                      <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-eye"></use></svg>
+                    </button>
+                  </div>
+                  <p class="form-field__hint" id="newPasswordHint">8+ characters with a letter and a number.</p>
+                  <p class="form-field__error" id="newPasswordError" data-field-error></p>
+                </div>
+                <div class="form-field" data-field>
+                  <label class="form-field__label" for="confirmNewPasswordInput">Confirm new password</label>
+                  <div class="form-field__control">
+                    <input class="form-field__input" id="confirmNewPasswordInput" name="confirmNewPassword" type="password" autocomplete="new-password" required data-match="newPasswordInput" data-match-message="Passwords do not match." aria-describedby="confirmNewPasswordError">
+                    <button class="form-field__toggle" type="button" aria-label="Show password" aria-pressed="false" aria-controls="confirmNewPasswordInput" data-password-toggle>
+                      <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-eye"></use></svg>
+                    </button>
+                  </div>
+                  <p class="form-field__error" id="confirmNewPasswordError" data-field-error></p>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="button button--primary" type="submit"><span class="button__spinner" aria-hidden="true"></span><span class="button__label">Update password</span></button>
+              </div>
+            </form>
+
+            <div class="panel">
+              <h3 class="panel__title">Two-factor authentication</h3>
+              <div class="switch-field">
+                <div class="switch-field__text">
+                  <label class="switch-field__label" for="twoFactorSwitch">Require a code at sign-in</label>
+                  <p class="switch-field__description" id="twoFactorStatus" data-two-factor-status aria-live="polite">Off. Turn on two-factor authentication to protect billing changes.</p>
+                </div>
+                <input class="switch-field__input" id="twoFactorSwitch" type="checkbox" role="switch" aria-describedby="twoFactorStatus" data-two-factor-switch>
+              </div>
+            </div>
+
+            <div class="panel">
+              <header class="panel__header">
+                <div>
+                  <h3 class="panel__title">Active sessions</h3>
+                  <p class="panel__subtitle">Devices signed in to this account (demo list).</p>
+                </div>
+                <button class="button button--secondary button--small" type="button" data-sign-out-others>Sign out other sessions</button>
+              </header>
+              <ul class="session-list" data-session-list></ul>
+            </div>
+          </section>
+
+          <!-- ===== Notifications ===== -->
+          <section class="tabs__panel" role="tabpanel" id="panelNotifications" aria-labelledby="tabNotifications" tabindex="0" hidden>
+            <div class="panel">
+              <header class="panel__header">
+                <div>
+                  <h3 class="panel__title">Email notifications</h3>
+                  <p class="panel__subtitle">Changes save immediately and persist across pages.</p>
+                </div>
+              </header>
+              <div data-notification-list></div>
+            </div>
+          </section>
+
+          <!-- ===== Billing ===== -->
+          <section class="tabs__panel" role="tabpanel" id="panelBilling" aria-labelledby="tabBilling" tabindex="0" hidden>
+            <div class="alert alert--info">
+              <svg class="icon alert__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-info"></use></svg>
+              <p class="alert__message">Demo billing. No payment is taken and card details are never stored. Only the public test card 4242 4242 4242 4242 is accepted.</p>
+            </div>
+
+            <div class="panel">
+              <header class="panel__header">
+                <h3 class="panel__title">Current plan</h3>
+                <a class="button button--ghost button--small" href="pricing.html">Compare plans</a>
+              </header>
+              <div class="plan-summary">
+                <div class="plan-summary__head">
+                  <p class="plan-summary__name" data-subscription-field="planName"></p>
+                  <p class="plan-summary__price" data-subscription-field="planPrice"></p>
+                </div>
+                <dl class="plan-summary__facts">
+                  <div class="plan-summary__fact"><dt class="plan-summary__term">Billing cycle</dt><dd class="plan-summary__value" data-subscription-field="billingCycle"></dd></div>
+                  <div class="plan-summary__fact"><dt class="plan-summary__term">Next invoice</dt><dd class="plan-summary__value" data-subscription-field="nextInvoiceAmount"></dd></div>
+                  <div class="plan-summary__fact"><dt class="plan-summary__term">Renews on</dt><dd class="plan-summary__value" data-subscription-field="nextInvoiceDate"></dd></div>
+                </dl>
+                <div class="usage-meter" data-meter="seats">
+                  <div class="usage-meter__header"><span class="usage-meter__label" id="settingsSeatsLabel">Seats</span><span class="usage-meter__value" data-meter-value></span></div>
+                  <div class="usage-meter__track" role="meter" aria-labelledby="settingsSeatsLabel" aria-valuemin="0"><div class="usage-meter__fill" data-meter-fill></div></div>
+                </div>
+                <div class="usage-meter" data-meter="events">
+                  <div class="usage-meter__header"><span class="usage-meter__label" id="settingsEventsLabel">Tracked events this cycle</span><span class="usage-meter__value" data-meter-value></span></div>
+                  <div class="usage-meter__track" role="meter" aria-labelledby="settingsEventsLabel" aria-valuemin="0"><div class="usage-meter__fill" data-meter-fill></div></div>
+                </div>
+                <div class="plan-summary__actions">
+                  <button class="button button--brand" type="button" data-modal-open="changePlanModal">Change plan</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <header class="panel__header">
+                <h3 class="panel__title">Payment method</h3>
+              </header>
+              <div class="payment-card">
+                <span class="payment-card__icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-credit-card"></use></svg></span>
+                <div class="payment-card__details">
+                  <span class="payment-card__number" data-card-number></span>
+                  <span class="payment-card__expiry" data-card-expiry></span>
+                </div>
+                <button class="button button--secondary button--small" type="button" data-modal-open="paymentModal">Update card</button>
+              </div>
+            </div>
+
+            <div class="panel">
+              <header class="panel__header">
+                <div>
+                  <h3 class="panel__title">Invoices</h3>
+                  <p class="panel__subtitle" data-invoice-count></p>
+                </div>
+                <button class="button button--secondary button--small" type="button" data-invoice-export><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-download"></use></svg>Download CSV</button>
+              </header>
+              <div class="data-table" role="region" aria-labelledby="invoiceCaption" tabindex="0">
+                <table class="data-table__table">
+                  <caption class="data-table__caption" id="invoiceCaption">NovaDash invoices for this account, newest first</caption>
+                  <thead>
+                    <tr>
+                      <th class="data-table__header-cell" scope="col">Invoice</th>
+                      <th class="data-table__header-cell" scope="col">Issued</th>
+                      <th class="data-table__header-cell" scope="col">Description</th>
+                      <th class="data-table__header-cell data-table__header-cell--numeric" scope="col">Amount</th>
+                      <th class="data-table__header-cell" scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody data-invoice-table></tbody>
+                  <tfoot class="data-table__foot">
+                    <tr><th class="data-table__cell" scope="row" colspan="3">Total billed</th><td class="data-table__cell data-table__cell--numeric" data-invoice-total></td><td class="data-table__cell"></td></tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="app-footer">
+        <p>NovaDash demo · all figures are fictional · <a href="../index.html">Public site</a></p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ===== Modal: change plan ===== -->
+  <dialog class="modal" id="changePlanModal" aria-labelledby="changePlanTitle" aria-describedby="changePlanDescription">
+    <form class="modal__panel" data-plan-form>
+      <div class="modal__header">
+        <div>
+          <h2 class="modal__title" id="changePlanTitle">Change plan</h2>
+          <p class="modal__description" id="changePlanDescription">The change applies immediately and updates your next invoice. Enterprise is arranged with sales.</p>
+        </div>
+        <button class="modal__close button button--ghost button--icon-only" type="button" aria-label="Close dialog" data-modal-close><svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-x"></use></svg></button>
+      </div>
+      <div class="modal__body">
+        <fieldset class="plan-option-list" data-plan-options>
+          <legend class="visually-hidden">Plan</legend>
+        </fieldset>
+        <div class="form-field">
+          <label class="form-field__label" for="planCycleSelect">Billing cycle</label>
+          <select class="form-field__select" id="planCycleSelect" name="cycle" data-plan-cycle-select>
+            <option value="monthly">Monthly</option>
+            <option value="annual">Annual (about 20% less)</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal__footer">
+        <button class="button button--ghost" type="button" data-modal-close>Cancel</button>
+        <button class="button button--primary" type="submit">Confirm change</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- ===== Modal: update payment method (DEMO: test card only) ===== -->
+  <dialog class="modal" id="paymentModal" aria-labelledby="paymentModalTitle" aria-describedby="paymentModalDescription">
+    <form class="modal__panel" data-payment-form novalidate autocomplete="off">
+      <div class="modal__header">
+        <div>
+          <h2 class="modal__title" id="paymentModalTitle">Update card</h2>
+          <p class="modal__description" id="paymentModalDescription">Demo form. Enter the test number 4242 4242 4242 4242; real card numbers are rejected and nothing is stored.</p>
+        </div>
+        <button class="modal__close button button--ghost button--icon-only" type="button" aria-label="Close dialog" data-modal-close><svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-x"></use></svg></button>
+      </div>
+      <div class="modal__body">
+        <div class="form-field" data-field>
+          <label class="form-field__label" for="cardNameInput">Name on card</label>
+          <input class="form-field__input" id="cardNameInput" name="cardName" type="text" autocomplete="off" required minlength="2" aria-describedby="cardNameError">
+          <p class="form-field__error" id="cardNameError" data-field-error></p>
+        </div>
+        <div class="form-field" data-field>
+          <label class="form-field__label" for="cardNumberInput">Test card number</label>
+          <input class="form-field__input form-field__input--mono" id="cardNumberInput" name="cardNumber" type="text" inputmode="numeric" autocomplete="off" required placeholder="4242 4242 4242 4242" data-test-card aria-describedby="cardNumberError">
+          <p class="form-field__error" id="cardNumberError" data-field-error></p>
+        </div>
+        <div class="form-grid">
+          <div class="form-field" data-field>
+            <label class="form-field__label" for="cardExpiryInput">Expiry (MM/YY)</label>
+            <input class="form-field__input form-field__input--mono" id="cardExpiryInput" name="cardExpiry" type="text" inputmode="numeric" autocomplete="off" required placeholder="08/28" data-expiry aria-describedby="cardExpiryError">
+            <p class="form-field__error" id="cardExpiryError" data-field-error></p>
+          </div>
+          <div class="form-field" data-field>
+            <label class="form-field__label" for="cardCvcInput">CVC</label>
+            <input class="form-field__input form-field__input--mono" id="cardCvcInput" name="cardCvc" type="text" inputmode="numeric" autocomplete="off" required pattern="[0-9]{3}" data-pattern-message="Enter the 3 digits on the back (any 3 for the test card)." aria-describedby="cardCvcError">
+            <p class="form-field__error" id="cardCvcError" data-field-error></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal__footer">
+        <button class="button button--ghost" type="button" data-modal-close>Cancel</button>
+        <button class="button button--primary" type="submit"><span class="button__spinner" aria-hidden="true"></span><span class="button__label">Save test card</span></button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

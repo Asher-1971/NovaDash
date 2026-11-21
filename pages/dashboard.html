@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Overview · NovaDash</title>
+  <meta name="description" content="NovaDash executive dashboard: what needs attention, health KPIs and recent activity (demo data).">
+  <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <script type="module" src="../js/app.js"></script>
+</head>
+<body class="app-page" data-page="dashboard" data-requires-session>
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <div class="app-shell" data-app-shell>
+    <!-- ===== Sidebar navigation (drawer < 1024px, rail >= 1024px) ===== -->
+    <aside class="sidebar" id="primarySidebar" aria-label="Primary" data-sidebar>
+      <a class="sidebar__brand brand-mark" href="dashboard.html"><span class="brand-mark__dot"></span><span class="brand-mark__name" translate="no">NovaDash</span></a>
+      <nav class="sidebar__nav" aria-label="Main navigation">
+        <ul class="sidebar__list">
+          <li><a class="sidebar__link" href="dashboard.html" aria-current="page"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-layout-dashboard"></use></svg><span class="sidebar__label">Overview</span></a></li>
+          <li><a class="sidebar__link" href="analytics.html"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-chart-line"></use></svg><span class="sidebar__label">Analytics</span></a></li>
+          <li><a class="sidebar__link" href="settings.html"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-settings"></use></svg><span class="sidebar__label">Settings</span></a></li>
+          <li><a class="sidebar__link" href="settings.html#billing"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-credit-card"></use></svg><span class="sidebar__label">Billing</span></a></li>
+        </ul>
+        <p class="sidebar__group-label">Explore</p>
+        <ul class="sidebar__list">
+          <li><a class="sidebar__link" href="pricing.html"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-rocket"></use></svg><span class="sidebar__label">Plans &amp; pricing</span></a></li>
+          <li><a class="sidebar__link" href="../index.html"><svg class="icon sidebar__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-arrow-right"></use></svg><span class="sidebar__label">Public site</span></a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <button class="sidebar__collapse-toggle" type="button" aria-expanded="true" aria-controls="primarySidebar" aria-label="Collapse sidebar" data-sidebar-collapse>
+          <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-panel-left-close"></use></svg><span class="sidebar__label">Collapse</span>
+        </button>
+      </div>
+    </aside>
+    <div class="sidebar-scrim" data-sidebar-scrim hidden></div>
+
+    <div class="app-shell__main">
+      <!-- ===== Topbar ===== -->
+      <header class="topbar">
+        <button class="topbar__menu-toggle button button--ghost button--icon-only" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primarySidebar" data-sidebar-open>
+          <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-menu"></use></svg>
+        </button>
+        <h1 class="topbar__title">Overview</h1>
+        <div class="topbar__actions">
+          <button class="button button--ghost button--icon-only theme-toggle" type="button" aria-pressed="false" aria-label="Switch theme" data-theme-toggle>
+            <svg class="icon theme-toggle__icon--sun" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-sun"></use></svg>
+            <svg class="icon theme-toggle__icon--moon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-moon"></use></svg>
+          </button>
+          <div class="user-menu" data-user-menu>
+            <button class="user-menu__trigger" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="userMenuPanel" data-user-menu-trigger>
+              <span class="user-menu__avatar" aria-hidden="true" data-profile-initials>PR</span>
+              <span class="user-menu__name" data-profile-name>Priya Raman</span>
+              <span class="visually-hidden">Account menu</span>
+              <svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-chevron-down"></use></svg>
+            </button>
+            <div class="user-menu__panel" id="userMenuPanel" role="menu" aria-label="Account" data-user-menu-panel hidden>
+              <div class="user-menu__identity" role="none">
+                <span data-profile-name>Priya Raman</span>
+                <span class="user-menu__identity-email" data-profile-email>priya@lumenledger.example</span>
+              </div>
+              <a class="user-menu__item" role="menuitem" href="settings.html#profile"><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-user"></use></svg>Profile</a>
+              <a class="user-menu__item" role="menuitem" href="settings.html#billing"><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-credit-card"></use></svg>Billing</a>
+              <button class="user-menu__item" role="menuitem" type="button" data-sign-out><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-log-out"></use></svg>Sign out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===== Main content ===== -->
+      <main class="app-content" id="mainContent" tabindex="-1">
+        <div class="page-intro">
+          <div>
+            <h2 class="page-intro__heading">Good morning, <span data-profile-first-name>Priya</span></h2>
+            <p class="page-intro__lead">What needs you first, then the four numbers that matter. Demo data as of <span data-data-as-of></span>, 08:00 UTC.</p>
+          </div>
+          <a class="button button--secondary" href="analytics.html"><svg class="icon button__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-chart-line"></use></svg><span class="button__label">Open analytics</span></a>
+        </div>
+
+        <!-- Alerts first (confirmed priority) -->
+        <section class="panel" aria-labelledby="attentionHeading">
+          <header class="panel__header">
+            <h2 class="panel__title" id="attentionHeading" tabindex="-1">Needs attention</h2>
+            <span class="status-badge status-badge--neutral" data-attention-count></span>
+          </header>
+          <ul class="attention-list" data-attention-list></ul>
+        </section>
+
+        <!-- Health KPIs -->
+        <section aria-labelledby="kpiHeading">
+          <h2 class="visually-hidden" id="kpiHeading">Health at a glance</h2>
+          <div class="kpi-grid" data-kpi-grid></div>
+        </section>
+
+        <div class="dashboard-split">
+          <!-- MRR trend -->
+          <section class="panel chart-panel" aria-labelledby="dashboardTrendTitle">
+            <header class="panel__header">
+              <div>
+                <h2 class="panel__title" id="dashboardTrendTitle">Revenue trend</h2>
+                <p class="chart-panel__summary"><span class="chart-panel__summary-value" data-dashboard-trend-summary></span>, last 12 months</p>
+              </div>
+              <a class="button button--ghost button--small" href="analytics.html#revenue">Revenue detail<svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-chevron-right"></use></svg></a>
+            </header>
+            <div class="chart-panel__figure">
+              <svg class="trend-line trend-line--brand" viewBox="0 0 600 240" preserveAspectRatio="none" role="img" aria-label="Monthly recurring revenue trend" data-dashboard-trend>
+                <g data-trend-grid></g>
+                <path class="trend-line__area" data-trend-area></path>
+                <polyline class="trend-line__path" data-trend-path></polyline>
+              </svg>
+              <div class="trend-line__axis" aria-hidden="true"><span data-dashboard-trend-start></span><span data-dashboard-trend-end></span></div>
+            </div>
+            <details class="chart-panel__data">
+              <summary class="chart-panel__data-toggle">Show data table</summary>
+              <div class="data-table data-table--compact" role="region" aria-labelledby="dashboardTrendTableCaption" tabindex="0">
+                <table class="data-table__table">
+                  <caption class="data-table__caption" id="dashboardTrendTableCaption">Monthly recurring revenue by month</caption>
+                  <thead><tr><th class="data-table__header-cell" scope="col">Month</th><th class="data-table__header-cell data-table__header-cell--numeric" scope="col">MRR</th></tr></thead>
+                  <tbody data-dashboard-trend-table></tbody>
+                </table>
+              </div>
+            </details>
+          </section>
+
+          <!-- Plan summary (same source as Settings > Billing) -->
+          <section class="panel" aria-labelledby="planSummaryTitle">
+            <header class="panel__header">
+              <h2 class="panel__title" id="planSummaryTitle">Your NovaDash plan</h2>
+            </header>
+            <div class="plan-summary">
+              <div class="plan-summary__head">
+                <p class="plan-summary__name" data-subscription-field="planName"></p>
+                <p class="plan-summary__price" data-subscription-field="planPrice"></p>
+              </div>
+              <dl class="plan-summary__facts">
+                <div class="plan-summary__fact"><dt class="plan-summary__term">Next invoice</dt><dd class="plan-summary__value" data-subscription-field="nextInvoiceAmount"></dd></div>
+                <div class="plan-summary__fact"><dt class="plan-summary__term">Renews on</dt><dd class="plan-summary__value" data-subscription-field="nextInvoiceDate"></dd></div>
+              </dl>
+              <div class="usage-meter" data-meter="seats">
+                <div class="usage-meter__header"><span class="usage-meter__label" id="dashboardSeatsLabel">Seats</span><span class="usage-meter__value" data-meter-value></span></div>
+                <div class="usage-meter__track" role="meter" aria-labelledby="dashboardSeatsLabel" aria-valuemin="0"><div class="usage-meter__fill" data-meter-fill></div></div>
+              </div>
+              <div class="usage-meter" data-meter="events">
+                <div class="usage-meter__header"><span class="usage-meter__label" id="dashboardEventsLabel">Tracked events this cycle</span><span class="usage-meter__value" data-meter-value></span></div>
+                <div class="usage-meter__track" role="meter" aria-labelledby="dashboardEventsLabel" aria-valuemin="0"><div class="usage-meter__fill" data-meter-fill></div></div>
+              </div>
+              <div class="plan-summary__actions">
+                <a class="button button--secondary button--small" href="settings.html#billing">Manage billing</a>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Recent activity -->
+        <section class="panel" aria-labelledby="activityHeading">
+          <header class="panel__header">
+            <div>
+              <h2 class="panel__title" id="activityHeading">Recent activity</h2>
+              <p class="panel__subtitle" data-activity-count aria-live="polite"></p>
+            </div>
+            <fieldset class="segmented-control" data-activity-filter>
+              <legend class="visually-hidden">Filter activity by area</legend>
+              <span class="segmented-control__option"><input class="segmented-control__input" type="radio" name="activityDomain" id="activityAll" value="All" checked><label class="segmented-control__label" for="activityAll">All</label></span>
+              <span class="segmented-control__option"><input class="segmented-control__input" type="radio" name="activityDomain" id="activityRevenue" value="Revenue"><label class="segmented-control__label" for="activityRevenue">Revenue</label></span>
+              <span class="segmented-control__option"><input class="segmented-control__input" type="radio" name="activityDomain" id="activityProduct" value="Product"><label class="segmented-control__label" for="activityProduct">Product</label></span>
+              <span class="segmented-control__option"><input class="segmented-control__input" type="radio" name="activityDomain" id="activityInfrastructure" value="Infrastructure"><label class="segmented-control__label" for="activityInfrastructure">Infrastructure</label></span>
+            </fieldset>
+          </header>
+          <div class="data-table" role="region" aria-labelledby="activityCaption" tabindex="0">
+            <table class="data-table__table">
+              <caption class="data-table__caption" id="activityCaption">Recent activity across revenue, product and infrastructure. Times in UTC.</caption>
+              <thead>
+                <tr>
+                  <th class="data-table__header-cell" scope="col">Event</th>
+                  <th class="data-table__header-cell" scope="col">Area</th>
+                  <th class="data-table__header-cell" scope="col">Time</th>
+                  <th class="data-table__header-cell data-table__header-cell--numeric" scope="col">MRR impact</th>
+                  <th class="data-table__header-cell" scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody data-activity-table></tbody>
+            </table>
+            <div data-activity-empty hidden></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p>NovaDash demo · all figures are fictional · <a href="../index.html">Public site</a></p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create account · NovaDash</title>
+  <meta name="description" content="Create a NovaDash demo account.">
+  <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <script type="module" src="../js/app.js"></script>
+</head>
+<body class="auth-page" data-page="register">
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <div class="auth-layout">
+    <div class="auth-layout__panel">
+      <header class="auth-layout__top">
+        <a class="brand-mark" href="../index.html"><span class="brand-mark__dot"></span><span class="brand-mark__name" translate="no">NovaDash</span></a>
+        <button class="button button--ghost button--icon-only theme-toggle" type="button" aria-pressed="false" aria-label="Switch theme" data-theme-toggle>
+          <svg class="icon theme-toggle__icon--sun" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-sun"></use></svg>
+          <svg class="icon theme-toggle__icon--moon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-moon"></use></svg>
+        </button>
+      </header>
+
+      <main class="auth-layout__main" id="mainContent" tabindex="-1">
+        <div class="auth-layout__intro">
+          <h1 class="auth-layout__title">Create your workspace</h1>
+          <p class="auth-layout__lead">Takes a minute. Nothing leaves this browser.</p>
+        </div>
+
+        <div class="alert alert--info">
+          <svg class="icon alert__icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-info"></use></svg>
+          <p class="alert__message">Demo registration. Your name, email, company and plan are saved in this browser only; the password is checked and then discarded.</p>
+        </div>
+
+        <form class="auth-layout__form" data-register-form novalidate>
+          <div class="form-field" data-field>
+            <label class="form-field__label" for="registerNameInput">Full name</label>
+            <input class="form-field__input" id="registerNameInput" name="fullName" type="text" autocomplete="name" required minlength="2" aria-describedby="registerNameError">
+            <p class="form-field__error" id="registerNameError" data-field-error></p>
+          </div>
+
+          <div class="form-field" data-field>
+            <label class="form-field__label" for="registerEmailInput">Work email</label>
+            <input class="form-field__input" id="registerEmailInput" name="email" type="email" spellcheck="false" autocomplete="email" required aria-describedby="registerEmailError" placeholder="name@company.com">
+            <p class="form-field__error" id="registerEmailError" data-field-error></p>
+          </div>
+
+          <div class="form-field" data-field>
+            <label class="form-field__label" for="registerCompanyInput">Company</label>
+            <input class="form-field__input" id="registerCompanyInput" name="company" type="text" autocomplete="organization" required aria-describedby="registerCompanyError">
+            <p class="form-field__error" id="registerCompanyError" data-field-error></p>
+          </div>
+
+          <div class="form-field" data-field>
+            <label class="form-field__label" for="registerPlanSelect">Plan</label>
+            <select class="form-field__select" id="registerPlanSelect" name="plan" aria-describedby="registerPlanHint registerPlanError"></select>
+            <p class="form-field__hint" id="registerPlanHint">You can change plans at any time in Settings. <a href="pricing.html">Compare plans</a></p>
+            <p class="form-field__error" id="registerPlanError" data-field-error></p>
+          </div>
+
+          <div class="form-field" data-field>
+            <label class="form-field__label" for="registerPasswordInput">Password</label>
+            <div class="form-field__control">
+              <input class="form-field__input" id="registerPasswordInput" name="password" type="password" autocomplete="new-password" required minlength="8" pattern="(?=.*[A-Za-z])(?=.*\d).{8,}" data-pattern-message="Use at least one letter and one number." aria-describedby="registerPasswordRules registerPasswordError">
+              <button class="form-field__toggle" type="button" aria-label="Show password" aria-pressed="false" aria-controls="registerPasswordInput" data-password-toggle>
+                <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-eye"></use></svg>
+              </button>
+            </div>
+            <ul class="password-rules" id="registerPasswordRules" data-password-rules="registerPasswordInput">
+              <li class="password-rules__rule" data-rule="length"><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-minus"></use></svg>At least 8 characters <span class="visually-hidden">(<span data-rule-state>not met</span>)</span></li>
+              <li class="password-rules__rule" data-rule="letter"><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-minus"></use></svg>One letter <span class="visually-hidden">(<span data-rule-state>not met</span>)</span></li>
+              <li class="password-rules__rule" data-rule="number"><svg class="icon icon--sm" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-minus"></use></svg>One number <span class="visually-hidden">(<span data-rule-state>not met</span>)</span></li>
+            </ul>
+            <p class="form-field__error" id="registerPasswordError" data-field-error></p>
+          </div>
+
+          <div class="form-field" data-field>
+            <label class="form-field__label" for="registerConfirmInput">Confirm password</label>
+            <div class="form-field__control">
+              <input class="form-field__input" id="registerConfirmInput" name="confirmPassword" type="password" autocomplete="new-password" required data-match="registerPasswordInput" data-match-message="Passwords do not match." aria-describedby="registerConfirmError">
+              <button class="form-field__toggle" type="button" aria-label="Show password" aria-pressed="false" aria-controls="registerConfirmInput" data-password-toggle>
+                <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-eye"></use></svg>
+              </button>
+            </div>
+            <p class="form-field__error" id="registerConfirmError" data-field-error></p>
+          </div>
+
+          <div class="form-field" data-field>
+            <div class="choice-field">
+              <input class="choice-field__input" id="registerTermsInput" name="terms" type="checkbox" required data-required-message="Please accept the demo terms to continue." aria-describedby="registerTermsError">
+              <label class="choice-field__label" for="registerTermsInput">I understand NovaDash is a demonstration and no real account is created.</label>
+            </div>
+            <p class="form-field__error" id="registerTermsError" data-field-error></p>
+          </div>
+
+          <button class="button button--brand button--pill button--large button--block" type="submit">
+            <span class="button__spinner" aria-hidden="true"></span>
+            <span class="button__label">Create account</span>
+          </button>
+        </form>
+
+        <p class="auth-layout__alt-link">Already have an account? <a href="login.html">Sign in</a></p>
+      </main>
+
+      <footer class="auth-layout__footer">
+        <nav aria-label="Footer">
+          <ul class="auth-layout__footer-list">
+            <li><a class="auth-layout__footer-link" href="../index.html">Home</a></li>
+            <li><a class="auth-layout__footer-link" href="pricing.html">Pricing</a></li>
+          </ul>
+        </nav>
+        <p>NovaDash is a front-end demo. Authentication is simulated.</p>
+      </footer>
+    </div>
+
+    <aside class="auth-layout__aside" aria-label="About NovaDash">
+      <p class="auth-aside__quote">Your first morning view is ready as soon as the form is done.</p>
+      <ul class="auth-aside__list">
+        <li class="auth-aside__item"><svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-circle-alert"></use></svg>What needs attention, first</li>
+        <li class="auth-aside__item"><svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-gauge"></use></svg>Four health numbers</li>
+        <li class="auth-aside__item"><svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#icon-clock"></use></svg>Everything that happened overnight</li>
+      </ul>
+    </aside>
+  </div>
+</body>
+</html>
